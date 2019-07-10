@@ -57,3 +57,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'webpacker'
 gem 'active_storage_drag_and_drop'
+gem 'active_storage_validations'
