@@ -1,0 +1,13 @@
+<h2>Upload</h2>
+
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <%= form_for @image do |f| %>
+      <div class="form-group">
+        <%= f.drag_and_drop_file_field :image, 'Drag and drop image here' %>
+      </div>
+
+      <%= f.submit 'Post', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
