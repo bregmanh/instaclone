@@ -1,4 +1,8 @@
 class ImagesController < ApplicationController
+  def index
+    @images = Image.order(created_at: :desc).limit(15)
+  end
+
   def show
     @image = Image.find(params[:id])
   end
@@ -19,6 +23,6 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:image)
+    params.require(:image).permit(:image, :description)
   end
 end
