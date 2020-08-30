@@ -1,1 +1,14 @@
-<h2>InstaTon - A ton is better than gram</h2>
+<h2>Browse All Images</h2>
+
+<div class="card-columns">
+  <% @images.each do |image| %>
+    <div class="card">
+      <div class="card-body p-1">
+        <%= image_tag image.image, class: 'd-block w-100' %>
+
+        <p class="my-1"><%= image.description %></p>
+        </div>
+        <%= button_to "View Image", image_path(image.id), class: 'btn btn-secondary stretched-link',  method: :get %>
+    </div>
+  <% end %>
+</div>

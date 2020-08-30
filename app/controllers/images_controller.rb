@@ -1,6 +1,8 @@
 class ImagesController < ApplicationController
   def index
-    @images = Image.order(created_at: :desc).limit(15)
+    if current_user
+      @images = Image.where(user_id: current_user.id).order(created_at: :desc).limit(30)
+
   end
 
   def show
@@ -20,9 +22,17 @@ class ImagesController < ApplicationController
     end
   end
 
+  def destroy
+    puts "here"
+    @image = Image.find params[:id]
+    @image.destroy
+    redirect_to [:images], notice: 'Product deleted!' and return
+  end
+
   private
 
   def image_params
     params.require(:image).permit(:image, :description)
   end
 end
+

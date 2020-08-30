@@ -4,7 +4,19 @@ Rails.application.routes.draw do
   devise_for :users
 
   get '/upload', to: 'images#new'
-  resources :images, only: [:index, :show, :create]
-
   get '/@:username', to: 'users#show', as: :profile
+  
+  resources :images, only: [:index, :show, :create, :delete]
+
+  resources :images do
+    member do
+    delete :delete_image_attachment
+    end
+  end
+
+
+
+
+ 
+  
 end
