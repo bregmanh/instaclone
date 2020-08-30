@@ -1,14 +1,19 @@
 <h2>Browse All Images</h2>
 
-<div class="card-columns">
+<div class="card-rows">
   <% @images.each do |image| %>
-    <div class="card">
-      <div class="card-body p-1">
-        <%= image_tag image.image, class: 'd-block w-100' %>
-
-        <p class="my-1"><%= image.description %></p>
-        </div>
+    <% image.images.each do |image_inner| %>
+      <div class="card" style="width: 18rem; height: 18rem;">
+          <div class="card-body p-1">
+            <%= image_tag image_inner, class: 'd-block w-100' %>
+            <p class="my-1"><%= image.description %></p>
+          </div>
         <%= button_to "View Image", image_path(image.id), class: 'btn btn-secondary stretched-link',  method: :get %>
-    </div>
+      </div>
+    <% end %>
   <% end %>
 </div>
+
+    
+      
+  
